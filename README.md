@@ -1,3 +1,22 @@
+# otoshidama-dice-roll
+## 開発環境
+* 推奨
+  * Github Codespaces
+
+## 起動手順
+1. install dependencies
+
+```bash
+npm i -g @antfu/ni
+ni
+```
+
+1. start dev server
+
+```bash
+nr dev
+```
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
