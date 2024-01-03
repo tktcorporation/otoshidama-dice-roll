@@ -6,9 +6,18 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint && prettier --check .",
-    "lint:fix": "next lint --fix && prettier --write .",
+    "shadcn:add": "nlx shadcn-ui@latest add",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "ci": "nr format:check && nr lint && nr typecheck",
+    "ci:fix": "nr format:write && nr lint:fix",
     "start": "next start"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "nr ci"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
