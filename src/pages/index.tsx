@@ -1,10 +1,11 @@
+import { Button } from "~/components/ui/button";
 import Head from "next/head";
 
 import { api } from "~/utils/api";
 
 function Dice() {
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 py-2">
+    <div className="flex flex-col items-center justify-center py-2">
       <div className="flex space-x-4">
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-gray-300">
           <span className="text-2xl font-bold">3</span>
@@ -17,6 +18,9 @@ function Dice() {
         </div>
       </div>
       <h2 className="mt-4 text-2xl font-semibold">Total: $12</h2>
+      <Button variant="secondary" className="mt-4">
+        Roll
+      </Button>
     </div>
   );
 }
@@ -31,9 +35,9 @@ export default function Home() {
         <meta name="description" content="お年玉サイコロ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
+          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             お年玉サイコロ
           </h1>
           <p className="text-2xl text-white">
