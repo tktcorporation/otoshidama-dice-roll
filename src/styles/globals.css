@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family:
+    "Noto Sans JP",
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    "Hiragino Kaku Gothic ProN",
+    "BIZ UDPGothic",
+    meiryo,
+    sans-serif;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
