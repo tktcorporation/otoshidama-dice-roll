@@ -1,22 +1,22 @@
 {
-    "customizations": {
-        "vscode": {
-            "extensions": [
-				"GitHub.copilot",
-				"donjayamanne.githistory",
-				"eamodio.gitlens",
-				"mhutchie.git-graph",
-				"steoates.autoimport",
-				"Atishay-Jain.All-Autocomplete",
-				"usernamehw.errorlens",
-				"editorconfig.editorconfig",
-				"WakaTime.vscode-wakatime"
-            ],
-            "files.watcherExclude": {
-                "**/.git/*/**": true,
-                "**/node_modules/*/**": true
-            }
-        }
-    },
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential fzf && npm i -g @antfu/ni"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "steoates.autoimport",
+        "Atishay-Jain.All-Autocomplete",
+        "usernamehw.errorlens",
+        "editorconfig.editorconfig",
+        "WakaTime.vscode-wakatime"
+      ],
+      "files.watcherExclude": {
+        "**/.git/*/**": true,
+        "**/node_modules/*/**": true
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential fzf && npm i -g @antfu/ni"
 }

@@ -1,9 +1,12 @@
 # otoshidama-dice-roll
+
 ## 開発環境
-* 推奨
-  * Github Codespaces
+
+- 推奨
+  - Github Codespaces
 
 ## 起動手順
+
 1. install dependencies
 
 ```bash
