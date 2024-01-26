@@ -9,8 +9,7 @@
         "steoates.autoimport",
         "Atishay-Jain.All-Autocomplete",
         "usernamehw.errorlens",
-        "editorconfig.editorconfig",
-        "WakaTime.vscode-wakatime"
+        "editorconfig.editorconfig"
       ],
       "files.watcherExclude": {
         "**/.git/*/**": true,
