@@ -5,30 +5,24 @@ import Head from "next/head";
 import { api } from "~/utils/api";
 
 function Dice() {
-  const [first, setFirst] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [third, setThird] = useState(0);
+  const [diceResult, setDiceResult] = useState([1, 1, 1]);
   const [total, setTotal] = useState(0);
 
   const dice = api.dice.dice.useQuery();
 
   const handleRollClick = () => {
     if (dice.data) {
-      setFirst(
+      setDiceResult([
         typeof dice.data.diceResult[0] === "number"
           ? dice.data.diceResult[0]
-          : 0,
-      );
-      setSecond(
+          : 1,
         typeof dice.data.diceResult[1] === "number"
           ? dice.data.diceResult[1]
-          : 0,
-      );
-      setThird(
+          : 1,
         typeof dice.data.diceResult[2] === "number"
           ? dice.data.diceResult[2]
-          : 0,
-      );
+          : 1,
+      ]);
       setTotal(typeof dice.data.total === "number" ? dice.data.total : 0);
     }
   };
@@ -37,13 +31,13 @@ function Dice() {
     <div className="flex flex-col items-center justify-center py-2">
       <div className="flex space-x-4">
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{first}</span>
+          <span className="text-2xl font-bold">{diceResult[0]}</span>
         </div>
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{second}</span>
+          <span className="text-2xl font-bold">{diceResult[1]}</span>
         </div>
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{third}</span>
+          <span className="text-2xl font-bold">{diceResult[2]}</span>
         </div>
       </div>
 
