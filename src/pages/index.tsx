@@ -7,21 +7,14 @@ import { api } from "~/utils/api";
 function Dice() {
   const [diceResult, setDiceResult] = useState([1, 1, 1]);
   const [total, setTotal] = useState(0);
-
   const dice = api.dice.dice.useQuery();
 
   const handleRollClick = () => {
     if (dice.data) {
       setDiceResult([
-        typeof dice.data.diceResult[0] === "number"
-          ? dice.data.diceResult[0]
-          : 1,
-        typeof dice.data.diceResult[1] === "number"
-          ? dice.data.diceResult[1]
-          : 1,
-        typeof dice.data.diceResult[2] === "number"
-          ? dice.data.diceResult[2]
-          : 1,
+        dice.data.diceResult[0],
+        dice.data.diceResult[1],
+        dice.data.diceResult[2],
       ]);
       setTotal(typeof dice.data.total === "number" ? dice.data.total : 0);
     }
