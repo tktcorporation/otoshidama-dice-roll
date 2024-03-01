@@ -5,38 +5,47 @@ import Head from "next/head";
 import { api } from "~/utils/api";
 
 function Dice() {
-  const [diceResult, setDiceResult] = useState([1, 1, 1]);
-  const [total, setTotal] = useState(0);
-  const dice = api.dice.dice.useQuery();
+  const [dice, setDice] = useState({
+    diceResult: [1, 1, 1],
+    total: "0",
+  });
+  const { refetch } = api.dice.dice.useQuery(undefined, {
+    enabled: false,
+    onSuccess: (data) => {
+      if (data) {
+        setDice({
+          diceResult: [
+            data.diceResult[0],
+            data.diceResult[1],
+            data.diceResult[2],
+          ],
+          total: data.total.toLocaleString(),
+        });
+      }
+    },
+  });
 
-  const handleRollClick = () => {
-    if (dice.data) {
-      setDiceResult([
-        dice.data.diceResult[0],
-        dice.data.diceResult[1],
-        dice.data.diceResult[2],
-      ]);
-      setTotal(typeof dice.data.total === "number" ? dice.data.total : 0);
-    }
+  const handleRollClick = async () => {
+    await refetch();
   };
 
   return (
     <div className="flex flex-col items-center justify-center py-2">
       <div className="flex space-x-4">
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{diceResult[0]}</span>
+          <span className="text-2xl font-bold">{dice.diceResult[0]}</span>
         </div>
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{diceResult[1]}</span>
+          <span className="text-2xl font-bold">{dice.diceResult[1]}</span>
         </div>
         <div className="flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#960000]">
-          <span className="text-2xl font-bold">{diceResult[2]}</span>
+          <span className="text-2xl font-bold">{dice.diceResult[2]}</span>
         </div>
       </div>
 
-      <h2 className="mt-4 text-2xl font-semibold">Total: ¥{total}</h2>
-      {!total && (
-        <Button variant="secondary" className="mt-4" onClick={handleRollClick}>
+      <h2 className="mt-6 text-2xl font-semibold">Total: ¥{dice.total}</h2>
+      {dice.total === "0" && (
+        <Button variant="secondary" className="mt-6" onClick={handleRollClick}>
           Roll
         </Button>
       )}
